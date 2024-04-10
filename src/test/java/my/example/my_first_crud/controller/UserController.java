@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class UserControlller {
+public class UserController {
     @Autowired
     private UserService userService;
 
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
-
         model.addAttribute("users", users);
         return "user-list";
     }
@@ -37,7 +36,7 @@ public class UserControlller {
     }
 
     @GetMapping("user-delete/{id}")
-    public String deleteUSer(@PathVariable("id") int id) {
+    public String deleteUser(@PathVariable("id") int id) {
         userService.deleteById(id);
         return "redirect:/users";
     }
