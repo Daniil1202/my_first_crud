@@ -30,7 +30,7 @@ public class UserRepository {
     }
 
     public User save(User user) {
-        String sql = "INSERT INTO userTable(firstName,lastName) VALUES (?,?)";
+        String sql = "INSERT INTO userTable (firstName,lastName) VALUES (?,?)";
         jdbsTemp.update(sql, user.getFirstName(), user.getLastName());
         return user;
 
@@ -42,8 +42,7 @@ public class UserRepository {
     }
 
     public void updateById(int id, String firstName, String lastName) {
-        String sql = "UPDATE userTable SET firstName = ?, lastName = ?" +
-                " WHERE id = ?";
+        String sql = "UPDATE userTable SET firstName = ?, lastName = ? WHERE id = ?";
         jdbsTemp.update(sql,firstName,lastName,id);
     }
 }
